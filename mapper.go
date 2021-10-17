@@ -171,35 +171,8 @@ func (m *Mapper) EmitKeys(modifiers map[int]bool, keyDown int) error {
 
 func (m *Mapper) executeBinding(binding *deviceBinding) error {
 	time.Sleep(25 * time.Millisecond)
-	switch binding.driver {
-	case "exec":
-		fmt.Printf("EXEC: /bin/bash -c %q\n", binding.original)
-		return exec.Command("/bin/bash", "-c", binding.original).Run()
-	case "xdotool", "":
-		fmt.Println("xdotool key --clearmodifiers", binding.original)
-		return exec.Command("xdotool", "key", "--clearmodifiers", binding.original).Run()
-	case "osc":
-		msgs := parseOSCMessages(binding.original)
-		if msgs == nil {
-			fmt.Printf("Failed parsing OSC binding for keys %q. Remember %q should start with an /\n", binding.rawKey, binding.rawValue)
-			return nil
-		}
-		for _, msg := range msgs {
-			if msg.Address == "/sleep" {
-				fmt.Println("Sleeping for", msg.Arguments[0].(float64), "seconds")
-				time.Sleep(time.Duration(msg.Arguments[0].(float64)*1000) * time.Millisecond)
-				continue
-			}
-			fmt.Println("Sending OSC message:", msg)
-			err := binding.oscClient.Send(msg)
-			if err != nil {
-				return err
-			}
-		}
-		return nil
-	default:
-		panic("unreachable")
-	}
+	fmt.Printf("EXEC: /bin/bash -c %q\n", binding.original)
+	return exec.Command("/bin/bash", "-c", binding.original).Run()
 }
 
 func parseOSCMessages(multiInput string) (out []*osc.Message) {

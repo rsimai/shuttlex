@@ -26,7 +26,7 @@ func main() {
 		os.Stdout = log
 	}
 
-	devicePath := "/dev/input/by-id/usb-Contour_Design_ShuttlePRO_v2-event-if00"
+	devicePath := "/dev/input/shuttlexpress"
 	if len(flag.Args()) == 1 {
 		devicePath = flag.Arg(0)
 	}
