@@ -4,29 +4,43 @@ Linux userspace app for Contour Design ShuttleXpress
 Execute shell commands such as xdotool key <keyname> to work with 
 video/audio editors and such, see .shuttle-go.json.example.
 Code comes from (kudos to!) abourget's shuttle-go which I have stripped
-down and made suitable for my needs.
+down and made suitable for my needs. To specify the whole command gives
+more flexibility, for some app features you'll need "keydown" and "keyup"
+instead of just "key", which wasn't possible.
 
 See https://github.com/abourget/shuttle-go for the original.
 
-### Layout
+### ShuttleXpress layout
 
              F6   F7   F8
         F5                  F9
 
            (Dial norm/slow)
              (Jog Shuttle)
-        S-7 .. S-1  S0  S1 .. S7
+
+      S-7 .. S-1  S0  S+1 .. S+7
+
+### window matching
+
+This tool supports window matching, you may have config sections specific to the
+focused window.
 
 ### xdotool
 
-The key names to use in the X11 bindings are found here:
-https://www.cl.cam.ac.uk/~mgk25/ucs/keysymdef.h or you can view them
-locally in `/usr/include/X11/keysymdef.h` (stripped of the `XK_` prefix).
+You need to install the `xdotool` package before using this driver, or
+anything similar to create keyboard events.
 
-You need to install the `xdotool` package before using this driver.
+The key names to use with xdotool can be found here:
+https://gitlab.com/cunidev/gestures/-/wikis/xdotool-list-of-key-codes
 
 Any bindings triggered will execute the corresponding command through
 `/bin/bash -c "your command"`
+
+where "your command" would typically be something like
+
+"xdotool key KEYNAME"
+
+See the .shuttle-go.json.example for more.
 
 ### udev
 
@@ -47,7 +61,13 @@ Modify to your needs:
 
     shuttle-go -config YOUR_CONF /PATH/TO/YOUR/DEVICE
 
-### License
+### unwanted mouse device
+
+For me the shuttleXpress appears as a keyboard (wanted) and also as mouse device
+where the jog produces mousewheel events (unwanted). Use the `shuttle` script
+to disable the mouse device using xinput and start up shuttle-go.
+
+### license
 
 MIT
 

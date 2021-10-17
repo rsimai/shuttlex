@@ -33,10 +33,43 @@
                 "S7": "echo 7"
             }
 	},
+	{
+	    "name": "Browser",
+	    "match_window_titles": [
+		".*Google Chrome$", ".*Chromium$", ".*Firefox$"
+            ],
+	    "slow_jog": 80,
+            "bindings": {
+                "F5": "xdotool key Alt_L+Left",
+                "F6": "",
+                "F7": "",
+                "F8": "",
+                "F9": "xdotool key Alt_R+Right",
+                "JogL": "xdotool key Up",
+                "JogR": "xdotool key Down",
+                "SlowJogL": "xdotool key Up",
+                "SlowJogR": "xdotool key Down",
+                "S-7": "",
+                "S-6": "",
+                "S-5": "",
+                "S-4": "",
+                "S-3": "",
+                "S-2": "xdotool keydown Up",
+                "S-1": "xdotool keyup Up",
+                "S0": "xdotool keyup Down Up",
+                "S1": "xdotool keyup Down",
+                "S2": "xdotool keydown Down",
+                "S3": "",
+                "S4": "",
+                "S5": "",
+                "S6": "",
+                "S7": ""
+            }
+	},
         {
             "name": "Avidemux",
             "match_window_titles": [
-                "Avidemux$", ".*"
+                "Avidemux$"
             ],
             "slow_jog": 80,
             "bindings": {

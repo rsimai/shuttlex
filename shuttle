@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# ShuttleXpress appears as keyboard and mouse, need to disable the mouse
+
+ID=$(xinput | grep "Contour Design ShuttleXpress" | grep pointer | cut -d"=" -f2 | cut -d"[" -f1)
+xinput disable $ID
+
+# see if there's a user config or fall back to /etc
+
+if test ~/.shuttle-go.json; then
+           shuttle-go
+       else
+           #kdialog --msgbox "no ~/.shuttle-go.json, using /etc/shuttle-go.json"
+           shuttle-go -config /etc/shuttle-go.json
+       fi
+       
