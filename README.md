@@ -8,15 +8,16 @@ down and made suitable for my needs.
 
 See https://github.com/abourget/shuttle-go for the original.
 
-## Layout
+### Layout
 
-        F5   F6   F7   F8   F9
+             F6   F7   F8
+        F5                  F9
 
-
+           (Dial norm/slow)
              (Jog Shuttle)
         S-7 .. S-1  S0  S1 .. S7
 
-#### xdotool
+### xdotool
 
 The key names to use in the X11 bindings are found here:
 https://www.cl.cam.ac.uk/~mgk25/ucs/keysymdef.h or you can view them
@@ -37,7 +38,7 @@ You'll need at least a one line udev rule like this added to /etc/udev/rules.d/
 
 Run the build.sh script.
 
-## Run
+### run
 
     shuttle-go
 
@@ -46,7 +47,7 @@ Modify to your needs:
 
     shuttle-go -config YOUR_CONF /PATH/TO/YOUR/DEVICE
 
-## License
+### License
 
 MIT
 
