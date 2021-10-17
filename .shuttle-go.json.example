@@ -1,0 +1,70 @@
+{
+    "apps": [
+	{
+	    "name": "Konsole",
+	    "match_window_titles": [
+		".*Konsole$"
+            ],
+	    "slow_jog": 80,
+            "bindings": {
+                "F5": "echo b1",
+                "F6": "echo b2",
+                "F7": "echo b3",
+                "F8": "echo b4",
+                "F9": "echo b5",
+                "JogL": "echo left",
+                "JogR": "echo right",
+                "SlowJogL": "echo slow left",
+                "SlowJogR": "echo slow right",
+                "S-7": "echo -7",
+                "S-6": "echo -6",
+                "S-5": "echo -5",
+                "S-4": "echo -4",
+                "S-3": "echo -3",
+                "S-2": "echo -2",
+                "S-1": "echo -1",
+                "S0": "echo 0",
+                "S1": "echo 1",
+                "S2": "echo 2",
+                "S3": "echo 3",
+                "S4": "echo 4",
+                "S5": "echo 5",
+                "S6": "echo 6",
+                "S7": "echo 7"
+            }
+	},
+        {
+            "name": "Avidemux",
+            "match_window_titles": [
+                "Avidemux$", ".*"
+            ],
+            "slow_jog": 80,
+            "bindings": {
+                "F5": "xdotool key ctrl+Page_Up",
+                "F6": "xdotool key ctrl+Home",
+                "F7": "xdotool key ctrl+x",
+                "F8": "xdotool key Return",
+                "F9": "xdotool key ctrl+Page_Down",
+                "JogL": "xdotool key Left Left Left Left",
+                "JogR": "xdotool key Right Right Right Right",
+                "SlowJogL": "xdotool key Left",
+                "SlowJogR": "xdotool key Right",
+                "S-7": "xdotool keyup Left keydown ctrl+Down",
+                "S-6": "",
+                "S-5": "xdotool keydown shift ctrl",
+                "S-4": "xdotool keyup shift keydown ctrl",
+                "S-3": "xdotool keyup ctrl keydown shift",
+                "S-2": "",
+                "S-1": "xdotool keyup shift ctrl keydown Left",
+                "S0": "xdotool keyup Left Right Up Down ctrl shift",
+                "S1": "xdotool keyup shift ctrl keydown Right",
+                "S2": "",
+                "S3": "xdotool keyup ctrl keydown shift",
+                "S4": "xdotool keyup shift keydown ctrl",
+                "S5": "xdotool keydown shift ctrl",
+                "S6": "",
+                "S7": "xdotool keyup Right Shift keydown ctrl+Up"
+            }
+        }
+    ]
+}
